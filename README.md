@@ -1,5 +1,7 @@
-# Welcome to Our Company Handbook 🚀
+# 🚓 ER:LC Server Staff & HR Handbook
 
-We are thrilled to have you here. This handbook is your guide to our company culture, policies, benefits, and daily operations. 
+Welcome to the official documentation and operational guide for our **Emergency Response: Liberty County** staff team. 
 
-Use the sidebar to navigate through the different sections. If you have any questions, feel free to reach out to the HR team.
+This handbook outlines our core expectations, moderation commands, punishment guidelines, and Human Resources policies. Every staff member is expected to read, understand, and abide by these guidelines at all times while on duty.
+
+> **Note:** Rules are subject to change. Check the announcement channels in our communications server for real-time updates.
