@@ -5,7 +5,6 @@
 * Moderation & ER:LC Rules
   * [Command Guidelines](moderation/commands.md)
   * [In-Game Punishments](moderation/punishments.md)
-  * [Handling Situations (STS)](moderation/sts-protocols.md)
 
 * Human Resources (HR)
   * [Staff Hierarchy & Ranks](hr/hierarchy.md)
