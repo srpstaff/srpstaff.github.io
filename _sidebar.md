@@ -1,13 +1,14 @@
 * Welcome
   * [Overview](README.md)
-  * [Staff Code of Conduct](staff/code-of-conduct.md)
 
-* Moderation & ER:LC Rules
+* General Staff Rules
+  * [Staff Code of Conduct](staff/code-of-conduct.md)
   * [Command Guidelines](moderation/commands.md)
   * [In-Game Punishments](moderation/punishments.md)
+  * [Leave of Absence & Resignations](staff/leave-of-absence.md)
 
-* Human Resources (HR)
+* HR Internal Rules & Guidelines
+  * [HR Code of Conduct & Duties](hr/hr-duties.md)
   * [Staff Hierarchy & Ranks](hr/hierarchy.md)
-  * [Promotions & Activity](hr/promotions.md)
-  * [Strike & Appeal System](hr/strikes.md)
-  * [Leave of Absence & Resignations](hr/leave-of-absence.md)
+  * [Promotions & Activity Tracking](hr/promotions.md)
+  * [Strike & Disciplinary System](hr/strikes.md)
