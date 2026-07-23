@@ -10,3 +10,4 @@
   * [Staff Hierarchy & Ranks](hr/hierarchy.md)
   * [Promotions & Activity](hr/promotions.md)
   * [Strike & Appeal System](hr/strikes.md)
+  * [Leave of Absence & Resignations](hr/leave-of-absence.md)
