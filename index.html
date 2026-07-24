@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <!-- Default Docsify Theme -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <!-- Dark Mode Theme CSS -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-mode@0.6.1/dist/style.css"/>
+  <!-- Docsify Darklight Theme Stylesheet -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css">
 </head>
 <body>
   <div id="app">Loading handbook...</div>
@@ -20,26 +20,35 @@
       loadSidebar: true,
       subMaxLevel: 2,
       search: 'auto',
-      // Dark Mode Configuration (Defaults to dark mode)
-      darkMode: {
+      // Darklight Theme Configuration
+      darklightTheme: {
+        defaultTheme: 'dark',
+        siteFont: 'Source Sans Pro,Helvetica Neue,Arial,sans-serif',
+        codeFont: 'Monaco,Courier,monospace',
+        bodyFontSize: '15px',
         dark: {
+          accent: '#42b983',
           background: '#1a1a1a',
-          toggleBtnBg: '#333',
-          textColor: '#b4b4b4'
+          textColor: '#b4b4b4',
+          codeBackground: '#2d2d2d',
+          sidebarBackground: '#1f1f1f',
+          sidebarTextColor: '#b4b4b4'
         },
         light: {
-          background: 'white',
-          toggleBtnBg: 'var(--theme-color)',
-          textColor: '#34495e'
-        },
-        default: 'dark' // Sets dark mode as the default
+          accent: '#42b983',
+          background: '#ffffff',
+          textColor: '#34495e',
+          codeBackground: '#f8f8f8',
+          sidebarBackground: '#f9f9f9',
+          sidebarTextColor: '#364149'
+        }
       }
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <!-- Dark Mode Plugin Script -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-dark-mode@0.6.1/dist/index.js"></script>
+  <!-- Docsify Darklight Theme Plugin Script -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript"></script>
 </body>
 </html>
