@@ -8,77 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css">
-  
-  <style>
-    /* Forcefully hide all possible classes for the top theme toggle button */
-    .darklight-theme,
-    .darklight-theme-button,
-    div[class*="darklight-theme"] {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-    }
-
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    /* Container sitting at the very bottom next to the sidebar's toggle lines */
-    .custom-theme-footer {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 15px;
-      background: transparent;
-      margin-top: auto;
-    }
-
-    /* 3 green lines icon look */
-    .green-lines {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-    .green-lines span {
-      width: 14px;
-      height: 2px;
-      background-color: #42b983;
-      border-radius: 1px;
-    }
-
-    /* Theme switcher button box matching clean styling */
-    .theme-box-container {
-      display: flex;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 6px;
-      padding: 3px;
-      gap: 4px;
-    }
-
-    .theme-btn {
-      background: transparent;
-      border: 2px solid transparent;
-      border-radius: 4px;
-      cursor: pointer;
-      padding: 4px 8px;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-    }
-
-    .theme-btn.active {
-      border-color: #42b983;
-      background: rgba(66, 185, 131, 0.15);
-    }
-    .theme-btn:hover {
-      opacity: 0.8;
-    }
-  </style>
 </head>
 <body>
   <div id="app">Loading handbook...</div>
@@ -108,72 +37,11 @@
           sidebarBackground: '#f9f9f9',
           sidebarTextColor: '#364149'
         }
-      },
-      plugins: [
-        function (hook, vm) {
-          hook.doneEach(function () {
-            if (document.getElementById('sidebar-theme-footer')) return;
-
-            const sidebarNav = document.querySelector('.sidebar-nav');
-            if (!sidebarNav) return;
-
-            const footerDiv = document.createElement('div');
-            footerDiv.id = 'sidebar-theme-footer';
-            footerDiv.className = 'custom-theme-footer';
-
-            const linesDiv = document.createElement('div');
-            linesDiv.className = 'green-lines';
-            linesDiv.innerHTML = '<span></span><span></span><span></span>';
-
-            const boxDiv = document.createElement('div');
-            boxDiv.className = 'theme-box-container';
-
-            const sunBtn = document.createElement('button');
-            sunBtn.className = 'theme-btn';
-            sunBtn.innerHTML = '☀️';
-            sunBtn.title = 'Light Mode';
-
-            const moonBtn = document.createElement('button');
-            moonBtn.className = 'theme-btn';
-            moonBtn.innerHTML = '🌙';
-            moonBtn.title = 'Dark Mode';
-
-            function updateActiveState() {
-              const currentTheme = localStorage.getItem('DOCSIFY_DARK_LIGHT') || 'dark';
-              if (currentTheme.includes('light')) {
-                sunBtn.classList.add('active');
-                moonBtn.classList.remove('active');
-              } else {
-                moonBtn.classList.add('active');
-                sunBtn.classList.remove('active');
-              }
-            }
-
-            sunBtn.onclick = function () {
-              localStorage.setItem('DOCSIFY_DARK_LIGHT', 'light');
-              location.reload();
-            };
-
-            moonBtn.onclick = function () {
-              localStorage.setItem('DOCSIFY_DARK_LIGHT', 'dark');
-              location.reload();
-            };
-
-            updateActiveState();
-
-            boxDiv.appendChild(sunBtn);
-            boxDiv.appendChild(moonBtn);
-
-            footerDiv.appendChild(linesDiv);
-            footerDiv.appendChild(boxDiv);
-            
-            sidebarNav.appendChild(footerDiv);
-          });
-        }
-      ]
+      }
     }
   </script>
 
+  <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript"></script>
