@@ -6,13 +6,50 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Staff and HR policies for our ER:LC server.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <!-- Default Docsify Theme -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <!-- Docsify Darklight Theme Stylesheet -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css">
+  
+  <!-- Custom Styling for the Sun/Moon Box Switcher in the Sidebar -->
+  <style>
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .custom-theme-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.05);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      margin-top: auto;
+    }
+    .theme-btn {
+      background: transparent;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 6px 10px;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    /* Square box border around the currently selected mode */
+    .theme-btn.active {
+      border-color: #42b983;
+      background: rgba(66, 185, 131, 0.1);
+    }
+    .theme-btn:hover {
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
   <div id="app">Loading handbook...</div>
+  
   <script>
     window.$docsify = {
       name: 'SRP Handbook',
@@ -20,12 +57,8 @@
       loadSidebar: true,
       subMaxLevel: 2,
       search: 'auto',
-      // Darklight Theme Configuration
       darklightTheme: {
         defaultTheme: 'dark',
-        siteFont: 'Source Sans Pro,Helvetica Neue,Arial,sans-serif',
-        codeFont: 'Monaco,Courier,monospace',
-        bodyFontSize: '15px',
         dark: {
           accent: '#42b983',
           background: '#1a1a1a',
@@ -42,13 +75,76 @@
           sidebarBackground: '#f9f9f9',
           sidebarTextColor: '#364149'
         }
-      }
+      },
+      plugins: [
+        function (hook, vm) {
+          hook.doneEach(function () {
+            // Check if switcher already exists to avoid duplicates
+            if (document.getElementById('sidebar-theme-box')) return;
+
+            // Create the container box at the bottom of the sidebar
+            const sidebarNav = document.querySelector('.sidebar-nav');
+            if (!sidebarNav) return;
+
+            const switcherDiv = document.createElement('div');
+            switcherDiv.id = 'sidebar-theme-box';
+            switcherDiv.className = 'custom-theme-switcher';
+
+            // Sun button (Light Mode)
+            const sunBtn = document.createElement('button');
+            sunBtn.className = 'theme-btn';
+            sunBtn.innerHTML = '☀️';
+            sunBtn.title = 'Light Mode';
+
+            // Moon button (Dark Mode)
+            const moonBtn = document.createElement('button');
+            moonBtn.className = 'theme-btn';
+            moonBtn.innerHTML = '🌙';
+            moonBtn.title = 'Dark Mode';
+
+            // Function to update active square borders based on current theme
+            function updateActiveState() {
+              const currentTheme = localStorage.getItem('DOCSIFY_DARK_LIGHT') || 'dark';
+              if (currentTheme.includes('light')) {
+                sunBtn.classList.add('active');
+                moonBtn.classList.remove('active');
+              } else {
+                moonBtn.classList.add('active');
+                sunBtn.classList.remove('active');
+              }
+            }
+
+            sunBtn.onclick = function () {
+              const switchBtn = document.querySelector('.darklight-theme-button');
+              if (switchBtn) switchBtn.click();
+              // Fallback trigger if plugin class differs
+              localStorage.setItem('DOCSIFY_DARK_LIGHT', 'light');
+              location.reload();
+            };
+
+            moonBtn.onclick = function () {
+              const switchBtn = document.querySelector('.darklight-theme-button');
+              if (switchBtn) switchBtn.click();
+              localStorage.setItem('DOCSIFY_DARK_LIGHT', 'dark');
+              location.reload();
+            };
+
+            updateActiveState();
+
+            switcherDiv.appendChild(sunBtn);
+            switcherDiv.appendChild(moonBtn);
+            
+            // Append right inside the sidebar navigation area
+            sidebarNav.appendChild(switcherDiv);
+          });
+        }
+      ]
     }
   </script>
+
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <!-- Docsify Darklight Theme Plugin Script -->
   <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript"></script>
 </body>
 </html>
