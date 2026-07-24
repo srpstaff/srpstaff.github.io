@@ -1,4 +1,4 @@
-# 🚓 ER:LC Server Staff & HR Handbook
+# 🚓 SRP Server Staff & HR Handbook
 
 Welcome to the official documentation and operational guide for the **Seattle Roleplay** staff team. 
 
